@@ -9,6 +9,12 @@
 <p>
     @Html.ActionLink("Create New", "Create", "User")
 </p>
+
+<form method="get" action="@Url.Action("Search", "User")">
+    <input type="text" name="name" placeholder="Enter user name" />
+    <button type="submit">Search</button>
+</form>
+
 <table class="table">
     <tr>
         <th>
