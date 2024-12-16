@@ -97,7 +97,7 @@
     },
     "webAppName": {
       "type": "string",
-      "defaultValue": "https://github.com/github-cloudlabsuser-1279/MyMvcApp-Contact-Database-Application",
+      "defaultValue": "MyMvcAppContactDatabaseApp",
       "metadata": {
         "description": "Name of the web app"
       }
