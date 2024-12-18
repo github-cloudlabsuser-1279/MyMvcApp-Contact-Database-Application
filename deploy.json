@@ -29,91 +29,30 @@
       ],
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-        "httpsOnly": true,
         "siteConfig": {
           "appSettings": [
             {
-              "name": "WEBSITE_RUN_FROM_PACKAGE",
-              "value": "1"
-            },
-            {
-              "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
-              "value": "true"
+              "name": "ASPNETCORE_ENVIRONMENT",
+              "value": "Development"
             }
           ]
         }
-      }
-    },
-    {
-      "type": "Microsoft.Web/sites/config",
-      "apiVersion": "2021-02-01",
-      "name": "[concat(parameters('webAppName'), '/authsettingsv2')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', parameters('webAppName'))]"
-      ],
-      "properties": {
-        "platform": {
-          "enabled": true
-        },
-        "globalValidation": {
-          "requireAuthentication": true
-        },
-        "identityProviders": {
-          "azureActiveDirectory": {
-            "enabled": true,
-            "registration": {
-              "openIdIssuer": "https://login.microsoftonline.com/{tenant-id}",
-              "clientId": "{client-id}",
-              "clientSecretSettingName": "AAD_CLIENT_SECRET"
-            }
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Web/sites/sourcecontrols",
-      "apiVersion": "2021-02-01",
-      "name": "[concat(parameters('webAppName'), '/web')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', parameters('webAppName'))]"
-      ],
-      "properties": {
-        "repoUrl": "[parameters('repoUrl')]",
-        "branch": "[parameters('branch')]",
-        "isManualIntegration": true,
-        "isGitHubAction": true
       }
     }
   ],
   "parameters": {
     "hostingPlanName": {
       "type": "string",
-      "defaultValue": "Azure Plan",
+      "defaultValue": "MyMvcAppHostingPlan",
       "metadata": {
         "description": "Name of the hosting plan"
       }
     },
     "webAppName": {
       "type": "string",
-      "defaultValue": "MyMvcAppContactDatabaseApp",
+      "defaultValue": "LakshitMvcApp",
       "metadata": {
         "description": "Name of the web app"
-      }
-    },
-    "repoUrl": {
-      "type": "string",
-      "defaultValue": "https://github.com/github-cloudlabsuser-1279/MyMvcApp-Contact-Database-Application",
-      "metadata": {
-        "description": "URL of the GitHub repository"
-      }
-    },
-    "branch": {
-      "type": "string",
-      "defaultValue": "main",
-      "metadata": {
-        "description": "Branch to deploy from"
       }
     }
   }

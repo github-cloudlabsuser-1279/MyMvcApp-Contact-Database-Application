@@ -1,0 +1,59 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "apiVersion": "2021-02-01",
+        "name": "[parameters('hostingPlanName')]",
+        "location": "[resourceGroup().location]",
+        "sku": {
+          "name": "B1",
+          "tier": "Basic",
+          "size": "B1",
+          "family": "B",
+          "capacity": 1
+        },
+        "properties": {
+          "name": "[parameters('hostingPlanName')]",
+          "computeMode": "Dedicated"
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2021-02-01",
+        "name": "[parameters('webAppName')]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+        ],
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
+          "siteConfig": {
+            "appSettings": [
+              {
+                "name": "ASPNETCORE_ENVIRONMENT",
+                "value": "Development"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "hostingPlanName": {
+        "type": "string",
+        "defaultValue": "MyMvcAppHostingPlan",
+        "metadata": {
+          "description": "Name of the hosting plan"
+        }
+      },
+      "webAppName": {
+        "type": "string",
+        "defaultValue": "MyMvcApp",
+        "metadata": {
+          "description": "Name of the web app"
+        }
+      }
+    }
+  }
