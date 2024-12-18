@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\azureuser\\Desktop\\Hackathon\\MyMvcApp-Contact-Database-Application\\MyMvcApp.csproj",
+      "projectUniqueName": "c:\\Users\\azureuser\\GithHub Copilot\\MyMvcApp-Contact-Database-Application\\MyMvcApp.csproj",
       "projectName": "MyMvcApp",
-      "projectPath": "C:\\Users\\azureuser\\Desktop\\Hackathon\\MyMvcApp-Contact-Database-Application\\MyMvcApp.csproj",
+      "projectPath": "c:\\Users\\azureuser\\GithHub Copilot\\MyMvcApp-Contact-Database-Application\\MyMvcApp.csproj",
       "packagesPath": "C:\\Users\\azureuser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\azureuser\\Desktop\\Hackathon\\MyMvcApp-Contact-Database-Application\\obj\\",
+      "outputPath": "c:\\Users\\azureuser\\GithHub Copilot\\MyMvcApp-Contact-Database-Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\azureuser\\AppData\\Roaming\\NuGet\\NuGet.Config"

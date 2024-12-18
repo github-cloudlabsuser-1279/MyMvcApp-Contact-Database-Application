@@ -1,0 +1,30 @@
+,
+    "parameters": {
+        "appName": {
+            "type": "string",
+            "defaultValue": "MyMvcApp"
+        },
+        "appServicePlanName": {
+            "type": "string",
+            "defaultValue": "MyMvcAppServicePlan"
+        },
+        "packageUri": {
+            "type": "string",
+            "defaultValue": "https://path/to/your/package.zip"
+        },
+        "sqlServerName": {
+            "type": "string",
+            "defaultValue": "mySqlServer"
+        },
+        "sqlAdminLogin": {
+            "type": "string",
+            "defaultValue": "sqlAdmin"
+        },
+        "sqlAdminPassword": {
+            "type": "securestring"
+        },
+        "sqlDatabaseName": {
+            "type": "string",
+            "defaultValue": "myDatabase"
+        }
+    }
